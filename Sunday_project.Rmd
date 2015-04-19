@@ -1,0 +1,62 @@
+---
+title: "A Comparison of per capita GDP Across Years"
+author: "Bradford Casey"
+date: "Sunday, April 19, 2015"
+output: html_document
+---
+
+***Per Capita GDP for East African Nations***
+
+```{r}
+
+```
+
+
+
+```{r, echo=FALSE}
+
+##installs package, all dependencies needed for the given package, hash out after running once
+#install.packages("dplyr", dependencies = TRUE)
+
+#loads library for dplyr into working environment
+library("dplyr")
+
+#read in gapminder data as tab delimited with header
+gap.in <- read.table("output/combined_gapMinder.tsv",
+                     sep="\t",
+                     header = TRUE)
+
+  
+#generate plot for individual country
+Ethiopia.data <- gap.in %>%
+  filter(country == "Ethiopia") %>%
+  select(country, year, gdpPercap)
+  
+  plot( x = Ethiopia.data$year, y = Ethiopia.data$gdpPercap,
+     xlab = "Year",
+     ylab = "GDP per Capita",
+     main = "GDP of Ethiopia by Year")
+  
+
+Eritrea.data <- gap.in %>%
+  filter(country == "Eritrea") %>%
+  select(country, year, gdpPercap)
+  
+  plot( x = Eritrea.data$year, y = Eritrea.data$gdpPercap,
+     xlab = "Year",
+     ylab = "GDP per Capita",
+     main = "GDP of Eritrea by Year")
+  
+Kenya.data <- gap.in %>%
+  filter(country == "Kenya") %>%
+  select(country, year, gdpPercap)
+  
+  plot( x = Kenya.data$year, y = Kenya.data$gdpPercap,
+     xlab = "Year",
+     ylab = "GDP per Capita",
+     main = "GDP of Kenya by Year")
+  
+
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
