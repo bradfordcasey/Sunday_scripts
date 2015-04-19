@@ -4,5 +4,18 @@
 # Apr 19 2015
 
 #Read in data table with flag for tab delimited
-gap.in <- read.table("output/combined_gapMinder.tsv", sep="\t", header = TRUE)
+gap.in <- read.table("output/combined_gapMinder.tsv",
+                     sep="\t",
+                     header = TRUE)
 View(gap.in)
+
+for (row.number in 1:10){
+   for (col.number in 1:5){
+     print(gap.in[row.number,col.number])
+   }
+}
+gap.in[1:10,1:5]
+#a function that takes two arguments, x and y
+add.me <- function(x,y){
+  (x+y)
+}
